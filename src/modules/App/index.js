@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import Weather from '../../components/Weather';
+import DotsLoading from '../../components/DotsLoading';
 
-const socket = io('https://weather-api-rlab.herokuapp.com');
+const socket = io('http://localhost:3003');
 
 const styles = (theme) => ({
   root: {
@@ -14,9 +15,13 @@ const styles = (theme) => ({
     padding: theme.spacing.unit * 4,
   },
   title: {
-    padding: theme.spacing.unit * 4,
+    color: '#1E88E5',
     textAlign: 'center',
+    padding: theme.spacing.unit * 4,
   },
+  loading: {
+    padding: theme.spacing.unit * 8,
+  }
 });
 
 function App({ classes }) {
@@ -34,17 +39,17 @@ function App({ classes }) {
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-          <Typography className={classes.title} variant="h2" component="h2">
-            Temperatura y Hora
+          <Typography className={classes.title} variant="h4" component="h4">
+            TEMPERATURA Y HORA
           </Typography>
         </Grid>
       </Grid>
-      {cities.length === 0 &&
-        <Typography className={classes.title} variant="h3" component="h3">
-          Cargando
-        </Typography>
-      }
       <Grid container spacing={24}>
+        {cities.length === 0 &&
+          <Grid className={classes.loading} container justify="center">
+            <DotsLoading />
+          </Grid>
+        }
         {cities.map((city) => (
           <Grid item xs key={city}>
             <Weather name={city} data={data[city]} />
