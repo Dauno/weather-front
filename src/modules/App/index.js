@@ -28,7 +28,10 @@ function App({ classes }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    socket.on('citiesData', (resp) => {
+    setInterval(() => {
+      socket.emit('getData');
+    }, 10000);
+    socket.on('citiesData', async (resp) => {
       setData(resp);
     });
   }, [data]);
