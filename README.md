@@ -7,10 +7,9 @@ En el directorio del proyecto, ejecutar:
 ## Configuración
 Las siguientes configuraciones deben agregarse como variables de entorno
 
-* `PORT`: Puerto donde corre la App.
-* `API_URL`: Base URL  Weather API.
+* `REACT_APP_SOCKET_URL`: Base URL  Weather socket.
 
 
-Use [dotenv](https://github.com/motdotla/dotenv) junto con un archivo `.env` para configurar el entorno.<br>
+Use un archivo `.env` para configurar el entorno.<br>
 
-Abra `http://localhost:PORT` para ver la app en el browser.
+Abra `http://localhost:3000` para ver la app en el browser.

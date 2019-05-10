@@ -3,10 +3,10 @@ import io from 'socket.io-client';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+
 import Weather from '../../components/Weather';
 import DotsLoading from '../../components/DotsLoading';
-// import { API_URL } from '../../config';
-console.log('API_URL', process.env.REACT_APP_SOCKET_URL);
+
 const socket = io(process.env.REACT_APP_SOCKET_URL);
 
 const styles = (theme) => ({
