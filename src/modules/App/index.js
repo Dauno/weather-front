@@ -3,11 +3,11 @@ import io from 'socket.io-client';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import { API_URL } from '../../config';
 import Weather from '../../components/Weather';
 import DotsLoading from '../../components/DotsLoading';
 
-const socket = io('http://localhost:3003');
+const socket = io(API_URL);
 
 const styles = (theme) => ({
   root: {
